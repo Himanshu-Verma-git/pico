@@ -10,8 +10,6 @@ jobs:
     # Prevent running twice for PRs from same repo
 #    if: github.repository_owner == 'raspberrypi' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name)
     runs-on: [self-hosted, Linux, X64]
-    container:
-      image: ubuntu:22.04
     strategy:
       fail-fast: false
       matrix:
@@ -24,8 +22,6 @@ jobs:
         rm -rf "${{ github.workspace }}"
         mkdir -p "${{ github.workspace }}"
     
-    - name: Tools installation
-      run: apt-get update && apt-get install -y gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi cmake make git
     - name: Checkout pico-examples
       uses: actions/checkout@v4
       with:
