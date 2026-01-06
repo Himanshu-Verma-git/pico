@@ -24,13 +24,13 @@ jobs:
     
     - name: Tools installation
       run: |
-        sudo apt-get install -y \
-        gcc-arm-none-eabi \  
-        binutils-arm-none-eabi \
-        libnewlib-arm-none-eabi \
-        cmake \
-        make
-
+     apt-get update
+apt-get install -y \
+  gcc-arm-none-eabi \
+  binutils-arm-none-eabi \
+  libnewlib-arm-none-eabi \
+  cmake \
+  make
     - name: Checkout pico-examples
       uses: actions/checkout@v4
       with:
