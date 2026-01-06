@@ -21,6 +21,15 @@ jobs:
         echo "Cleaning up previous run"
         rm -rf "${{ github.workspace }}"
         mkdir -p "${{ github.workspace }}"
+    
+    - name: Tools installation
+      run: |
+        sudo apt-get install -y \
+        gcc-arm-none-eabi \  
+        binutils-arm-none-eabi \
+        libnewlib-arm-none-eabi \
+        cmake \
+        make
 
     - name: Checkout pico-examples
       uses: actions/checkout@v4
